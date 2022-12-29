@@ -1,0 +1,316 @@
+@font-face {
+	font-family: wishFont;
+	src: url('fonts/JosefinSans-VariableFont_wght.ttf');
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	position: relative;
+	scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+	display: none;
+}
+
+body > .page-background {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	min-height: 100vh;
+	z-index: -1;
+	background-color: #0a0a0a;
+}
+
+.page-content{
+	min-height: 100vh;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background: rgba(10, 10, 10, 0.2);
+	color: #fff;
+	padding: 2rem;
+}
+
+.page-footer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	padding: 2rem;
+	color: #fff;
+}
+
+.page-footer p {
+	margin: 0 !important;
+}
+
+.page-footer a {
+	color: #ecd600;
+}
+
+.page-footer a:hover {
+	color: #ffe700;
+	text-decoration: underline;
+}
+
+.floating-buttons {
+	position: fixed;
+	bottom: 1rem;
+	right: 0.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.floating-buttons .button {
+	border-radius: 50%;
+	width: 3rem;
+	height: 3rem;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.5rem;
+}
+
+.floating-buttons .button:not(:last-child) {
+	margin-bottom: 1rem;
+}
+
+.columns {
+	width: 100%;
+}
+
+.wish {
+	font-family: wishFont;
+}
+
+#wishingFriend #wishingFriend-name {
+	color: #ecd600 !important;
+	text-decoration: underline;
+}
+
+#wishingFriend .wishing-friend-giftbox {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #000;
+	z-index: 2;
+}
+
+.button-rounded-border {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 4rem;
+}
+
+body.capturing-screen *.hide-when-capture {
+	display: none !important;
+}
+
+#capturedImageContainer {
+	display: none;
+}
+
+.animated-calendar {
+	width: 20rem;
+	height: 20rem;
+	border-radius: 0.2rem;
+	font-weight: bold;
+}
+
+.animated-calendar .calendar-header {
+	width: 100%;
+	height: 30%;
+	background: #ff0019;
+	columns: #000;
+	font-size: 1.7rem;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	position: relative;
+}
+
+.animated-calendar .calendar-header::before {
+	content: '';
+	position: absolute;
+	top: -1rem;
+	left: 25%;
+	width: 1rem;
+	height: 2rem;
+	background: #000;
+	border-radius: 30%;
+	box-shadow: 0px 2px 2px #fff;
+}
+
+.animated-calendar .calendar-header::after {
+	content: '';
+	position: absolute;
+	top: -1rem;
+	right: 25%;
+	width: 1rem;
+	height: 2rem;
+	background: #000;
+	border-radius: 30%;
+	box-shadow: 0px 2px 2px #fff;
+}
+
+.animated-calendar .calendar-header .calendar-month {
+	padding: 0.1rem 0.5rem;
+	background-color: #fff;
+	color: #000;
+	border-radius: 0.3rem;
+	position: relative;
+	width: 10rem;
+	height: 2rem;
+	overflow: hidden;
+}
+
+.animated-calendar .calendar-header .calendar-year {
+	padding: 0.1rem 0.5rem;
+	color: #000;
+	position: relative;
+	width: 5rem;
+	height: 2rem;
+	overflow: hidden;
+}
+
+.animated-calendar .calendar-header .calendar-month > *,
+.animated-calendar .calendar-header .calendar-year > * {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: 0;
+	left: 0;
+}
+
+.animated-calendar .calendar-header .calendar-month .present,
+.animated-calendar .calendar-header .calendar-year .present {
+	top: 100%;
+}
+
+.animated-calendar .calendar-header .calendar-year .changing-letter {
+	background-color: #fff;
+	width: 1em;
+	height: 1em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 0.4rem;
+	margin-left: 0.1rem;
+}
+
+.animated-calendar .calendar-body {
+	width: 100%;
+	height: 70%;
+	background: #fff;
+	color: #000;
+	font-size: 8rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.animated-calendar .calendar-body .calendar-date {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.animated-calendar .calendar-body .calendar-date > * {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: 0;
+	left: 0;
+}
+
+.animated-calendar .calendar-body .calendar-date .past {
+	background-color: #fff;
+	z-index: 1;
+}
+
+*.show-after-calendar-teared {
+	display: none !important;
+}
+
+@keyframes scrollPastMonth {
+	100% { top: -100%; }
+}
+
+@keyframes scrollPresentMonth {
+	100% { top: 0%; }
+}
+
+@keyframes hideTearedPaper {
+	100% { overflow: hidden; }
+}
+
+@keyframes tearPastDate {
+	50% {
+		transform: rotate(-50deg);
+		top: 10%;
+	}
+	100% {
+		transform: rotate(-60deg);
+		top: 200%;
+		display: none !important;
+	}
+}
+
+.animated-calendar.animate .calendar-header .calendar-month > *,
+.animated-calendar.animate .calendar-header .calendar-year > * {
+	animation-delay: 0.5s;
+	animation-fill-mode: forwards;
+}
+
+.animated-calendar.animate .calendar-header .calendar-month > * {
+	animation-duration: 0.8s;
+	animation-delay: 0.6s;
+}
+
+.animated-calendar.animate .calendar-header .calendar-month .past,
+.animated-calendar.animate .calendar-header .calendar-year .past {
+	animation-name: scrollPastMonth;
+}
+
+.animated-calendar.animate .calendar-header .calendar-month .present,
+.animated-calendar.animate .calendar-header .calendar-year .present {
+	animation-name: scrollPresentMonth;
+}
+
+.animated-calendar.animate .calendar-body .calendar-date .past {
+	transform-origin: top right;
+	animation-delay: 0.6s;
+	animation-fill-mode: forwards;
+	animation-name: tearPastDate;
+	animation-duration: 0.8s;
+	animation-timing-function: linear;
+}
+
+.animated-calendar.animate .calendar-body .calendar-date {
+	animation-delay: 1.5s;
+	animation-fill-mode: forwards;
+	animation-name: hideTearedPaper;
+}
